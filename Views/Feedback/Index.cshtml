@@ -1,0 +1,43 @@
+﻿@model Feedback
+
+<form asp-action="Index" method="post" class="form-horizontal" role="form" style="margin-top:10px;">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Email" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Message" class="col-md-2 control-label"></label>
+        <div class="col-md-5">
+            <textarea class="form-control" name="Message"></textarea>
+            <span asp-validation-for="Message" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContactMe" class="col-md-2 control-label"></label>
+        <div class="col-md-1">
+            <input type="checkbox" asp-for="ContactMe" class="form-control" />
+            <span asp-validation-for="ContactMe" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-5">
+            <input type="submit" class="btn btn-primary" value="Submit feedback" />
+        </div>
+    </div>
+</form>

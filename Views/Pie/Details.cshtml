@@ -1,0 +1,13 @@
+﻿@model Pie
+
+<h2>@Model.Name</h2> 
+
+<div class="thumbnail">
+    <img alt="" width="130" height="120" src="~/images/Actual Images/@Model.ImageUrl"/>
+    <div class="caption-full">
+        <h3 class="pull-right">@Model.Price</h3>
+        <h3>@Model.Name</h3>
+        <h4>@Model.ShortDescription</h4>
+        <p>@Model.LongDescription</p>
+    </div>
+</div>
