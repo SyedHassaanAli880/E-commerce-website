@@ -1,4 +1,6 @@
-﻿using BethinyShop.ViewModel;
+﻿using BethinyShop.Models;
+using BethinyShop.ViewModel;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,9 +13,17 @@ namespace BethinyShop.Controllers
     {
         private readonly IPieRepository _pieRepository;
 
-        public PieController(IPieRepository pieRepository)
+        private readonly UserManager<IdentityUser> _userManager;
+
+        private readonly AppDbContext _db;
+
+        public PieController(IPieRepository pieRepository, UserManager<IdentityUser> um, AppDbContext apdb)
         {
             _pieRepository = pieRepository;
+
+            _userManager = um;
+
+            _db = apdb;
         }
 
         public IActionResult Index()
@@ -22,7 +32,7 @@ namespace BethinyShop.Controllers
 
             var obj = new PieViewModel()
             {
-                Title = "PIE SHOP",
+                Title = "Pie Shop",
 
                 Pies = ppies.ToList()
             };
@@ -35,11 +45,22 @@ namespace BethinyShop.Controllers
             var pie = _pieRepository.GetPieById(ID);
 
            if(pie == null)
-            {
+           {
                 return NotFound();
             }
             return View(pie);
         }
 
+        public IActionResult SearchPies(string searchPie)
+        {
+            if(string.IsNullOrEmpty(searchPie))
+            {
+                //var pie = _pieRepository.GetPieById(ID);
+                return View();
+            }
+            return View();
+        }
+
+        
     }
 }

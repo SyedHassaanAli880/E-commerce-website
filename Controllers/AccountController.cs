@@ -1,7 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using BethinyShop.ViewModel;
@@ -44,7 +41,7 @@ namespace BethinyShop.Controllers
 
                 if (result.Succeeded)
                 {
-                    RedirectToAction("Index", "Pie");
+                    return RedirectToAction("Index", "Pie");
                 }
             }
 
