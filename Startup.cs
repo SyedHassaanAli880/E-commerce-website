@@ -47,8 +47,17 @@ namespace BethinyShop
 
             //services.AddScoped<SignInManager<LoginViewModel>>();
 
-            services.AddIdentity<IdentityUser,IdentityRole>()
-                .AddEntityFrameworkStores<AppDbContext>();
+            //services.AddIdentity<IdentityUser,IdentityRole>()
+            //    .AddEntityFrameworkStores<AppDbContext>();
+
+            services.AddIdentity<IdentityUser, IdentityRole>(options =>
+            {
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.User.RequireUniqueEmail = true;
+            }
+            ).AddEntityFrameworkStores<AppDbContext>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
