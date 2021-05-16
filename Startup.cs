@@ -1,4 +1,5 @@
-﻿using BethinyShop.Models;
+﻿using BethinyShop.Auth;
+using BethinyShop.Models;
 using BethinyShop.ViewModel;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

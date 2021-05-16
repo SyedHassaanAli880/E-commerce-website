@@ -1,4 +1,5 @@
-﻿using BethinyShop.ViewModel;
+﻿using BethinyShop.Auth;
+using BethinyShop.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -40,6 +41,9 @@ namespace BethinyShop.Controllers
             {
                 UserName = addUserViewModel.UserName,
                 Email = addUserViewModel.Email
+                //Birthdate = addUserViewModel.Birthdate,
+                //City = addUserViewModel.City,
+                //Country = addUserViewModel.Country
             };
 
             IdentityResult result = await _userManager.CreateAsync(user, addUserViewModel.Password);

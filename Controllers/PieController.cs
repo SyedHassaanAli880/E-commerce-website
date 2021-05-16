@@ -1,4 +1,5 @@
-﻿using BethinyShop.Models;
+﻿using BethinyShop.Auth;
+using BethinyShop.Models;
 using BethinyShop.ViewModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;

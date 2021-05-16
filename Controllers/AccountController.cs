@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using BethinyShop.ViewModel;
+using BethinyShop.Auth;
 
 namespace BethinyShop.Controllers
 {

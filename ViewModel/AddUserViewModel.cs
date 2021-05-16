@@ -19,5 +19,15 @@ namespace BethinyShop.ViewModel
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        [Required]
+        public string City { get; set; }
+
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime Birthdate { get; set; }
+
+        [Required]
+        public string Country { get; set; }
     }
 }
