@@ -2,7 +2,6 @@
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using BethinyShop.ViewModel;
-using BethinyShop.Auth;
 
 namespace BethinyShop.Controllers
 {
@@ -37,7 +36,7 @@ namespace BethinyShop.Controllers
             if (user != null)
             {
                 var result = await
-                    _signInManager.PasswordSignInAsync(user, loginviewModel.Password, false, false); ;
+                    _signInManager.PasswordSignInAsync(user, loginviewModel.Password, false, false);
 
 
                 if (result.Succeeded)
