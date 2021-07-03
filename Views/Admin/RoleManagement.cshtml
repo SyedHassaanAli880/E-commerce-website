@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Identity
+
+@model IEnumerable<IdentityRole>
+
+<h2>ROLE MANAGEMENT</h2>
+<a class="btn btn-sm btn-primary" asp-controller="Admin" asp-action="AddRole">Add role</a>
+
+@if (!Model.Any())
+{
+    <tr><td colspan="3" class="text-center">No user accounts</td></tr>
+
+}
+else
+{
+    <table class="table table-condensed table-bordered" style="margin-top:1%;">
+
+        <tr>
+            <th>ROLE ID</th>
+            <th>ROLE NAME</th>
+            <th>ACTIONS</th>
+        </tr>
+
+        @foreach (IdentityRole role in Model)
+        {
+            <tr>
+                <td>@role.Id</td>
+                <td>@role.Name</td>
+
+                <td>
+                    <a class="btn btn-sm btn-primary col-md-6" asp-controller="Admin" asp-action="EditRole" asp-route-id="@role.Id">Edit</a>
+
+                    <form asp-controller="Admin" asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                        <button type="submit" onclick="return confirm('Are you sure?');" class="btn btn-sm btn-danger col-md-6">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </table>
+}

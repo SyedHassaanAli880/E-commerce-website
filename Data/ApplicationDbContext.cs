@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography.X509Certificates;
+using BethinyShop.Auth;
 using Ecommerce_MVC_Core.Code;
 using Ecommerce_MVC_Core.Models;
 using Ecommerce_MVC_Core.Models.Admin;
@@ -12,7 +13,7 @@ namespace Ecommerce_MVC_Core.Data
 {
 
 
-    public class ApplicationDbContext: IdentityDbContext<ApplicationUsers, ApplicationRoles, string>
+    public class ApplicationDbContext: IdentityDbContext<ApplicationUser, ApplicationRoles, string>
     {
         
 

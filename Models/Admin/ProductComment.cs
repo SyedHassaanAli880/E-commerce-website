@@ -11,7 +11,7 @@ namespace Ecommerce_MVC_Core.Models.Admin
         public string Comment { get; set; }
 
         public  Product Product { get; set; }
-        public  ApplicationUser Users { get; set; }
+        public  ApplicationUsers Users { get; set; }
     }
 
     public class ProductCommentsMap

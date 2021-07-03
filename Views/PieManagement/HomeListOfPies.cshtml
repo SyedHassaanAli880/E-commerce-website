@@ -1,0 +1,47 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model PieViewModel
+
+<h2>PIE MANAGEMENT </h2>
+<a class="btn btn-sm btn-primary" asp-controller="PieManagement" asp-action="AddPie">Add new pie</a>
+
+
+@*@if (!Model.pi)
+    {
+        <tr><td colspan="3" class="text-center">No user accounts</td></tr>
+    }
+    else
+    {*@
+<table class="table table-condensed table-bordered" style="margin-top:1%;">
+
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>IMAGE</th>
+        <th>PRICE</th>
+        <th>IN STOCK</th>
+        <th>ACTIONS</th>
+    </tr>
+
+    @foreach (var pie in Model.Pies)
+    {
+        <tr>
+            <td>@pie.Id</td>
+            <td>@pie.Name</td>
+            <td>
+                <img src="~/images/@pie.ImageThumbnailUrl" alt="" style="height:120px; width:150px;" />
+            </td>
+            <td>@pie.Price.ToString("c")</td>
+            <td>@pie.ShortDescription</td>
+            <td>
+                <a class="btn btn-sm btn-primary col-md-6" asp-controller="PieManagement" asp-action="EditPie" asp-route-id="@pie.Id">Edit</a>
+
+                <form asp-controller="PieManagement" asp-action="DeletePie" asp-route-userId="@pie.Id" method="post">
+                    <button type="submit" onclick="return confirm('Are you sure?');" class="btn btn-sm btn-danger col-md-6">Delete</button>
+                </form>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@*}*@
