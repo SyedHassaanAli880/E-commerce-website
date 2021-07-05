@@ -19,8 +19,9 @@
         <th>IMAGE</th>
         <th>PRICE</th>
         <th>IN STOCK</th>
-        <th>Short Description</th>
-        <th>Long Description</th>
+        <th>TOTAL QUANTITY</th>
+        <th>SHORT DESCRIPTION</th>
+        <th>LONG DESCRIPTION</th>
         <th>ACTIONS</th>
     </tr>
 
@@ -34,7 +35,8 @@
             </td>
             <td class="col-md-1">@product.Price.ToString("c")</td>
             <td class="col-md-1">@product.IsInStock</td>
-            <td class="col-md-2">@product.ShortDescription</td>
+            <td class="col-md-1">@product.quantity</td>
+            <td class="col-md-1">@product.ShortDescription</td>
             <td class="col-md-3">@product.LongDescription</td>
             <td >
                 <a class="btn btn-sm btn-primary col-md-6" asp-controller="ProductManagement" asp-action="Editproduct" asp-route-id="@product.Id">Edit</a>

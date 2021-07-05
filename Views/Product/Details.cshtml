@@ -1,13 +1,102 @@
 ﻿@model Product
 
-<h2>@Model.Name</h2> 
+<h2>@Model.Name</h2>
 
-<div class="thumbnail">
-    <img alt="" width="130" height="120" src="~/images/Actual Images/@Model.ImagePhoto"/>
+<div>
+    <img alt="" width="230" height="120" src="~/images/@Model.ImagePhoto" />
     <div class="caption-full">
-        <h3 class="pull-right">@Model.Price</h3>
-        <h3>@Model.Name</h3>
-        <h4>@Model.ShortDescription</h4>
-        <p>@Model.LongDescription</p>
+        <h3 class="pull-right">$PRICE:@Model.Price</h3>
+        <h4>SHORT DESCRIPTION:@Model.ShortDescription</h4>
+        <h4>LONG DESCRIPTION: @Model.LongDescription</h4>
     </div>
 </div>
+
+<table class="table table-condensed table-bordered" style="margin-top:1%;">
+
+    <tr>
+        <th>IN STOCK</th>
+        <th>RATINGS</th>
+        <th>QUANTITY</th>
+        <th>ACTION</th>
+    </tr>
+
+    <tr>
+
+
+
+        <td class="col-md-1">@Model.IsInStock</td>
+        <td></td>
+        <td>
+            <button class="btn minus-btn disabled" type="button">-</button>
+            <input type="text" id="quantity" value="1" />
+            <button class="btn plus-btn">+</button>
+        </td>
+        <td>
+            <a class="btn btn-sm btn-primary col-md-6" asp-controller="ProductManagement" asp-action="Editproduct" asp-route-id="@Model.Id">Add to cart</a>
+        </td>
+    </tr>
+
+
+</table>
+
+<section>
+
+    <h2>Customer questions & answers</h2>
+    <div class="media">
+        <img src="http://placehold.it/64x64" alt="Media object image" />
+        <div class="media-body">
+            <p>
+                <a href="mailto:example@domain.com">Author name</a>
+                (posted on:<time datetime="2021-07-12T10:24">July 5, 2021 at 10:24 AM</time>)
+            </p>
+            <p>
+                First of all, we will learn some basics of Bootstrap, bootstrap buttons,
+                add to cart button design in bootstrap.
+                After that, we will understand this concept with the
+                help of an example of add to cart button design in bootstrap
+            </p>
+        </div>
+    </div>
+    <div class="media">
+        <img src="http://placehold.it/64x64" alt="Media object image" />
+        <div class="media-body">
+            <p>
+                <a href="mailto:example@domain.com">Author name</a>
+                (posted on:<time datetime="2021-07-12T10:24">July 5, 2021 at 10:24 AM</time>)
+            </p>
+            <p>
+                First of all, we will learn some basics of Bootstrap, bootstrap buttons,
+                add to cart button design in bootstrap.
+                After that, we will understand this concept with the
+                help of an example of add to cart button design in bootstrap
+            </p>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+
+    var valueCount
+
+    document.querySelector(".plus-btn").addEventListener("click", function ()
+    {
+        valueCount = document.getElementById("quantity").value;
+        valueCount++;
+        document.getElementById("quantity").value = valueCount;
+
+        if (valueCount > 1) {
+            document.querySelector(".minus-btn").removeAttribute("disabled", "disabled");
+        }
+    })
+
+    document.querySelector(".minus-btn").addEventListener("click", function () {
+        valueCount = document.getElementById("quantity").value;
+        valueCount--;
+        document.getElementById("quantity").value = valueCount
+        if (valueCount == 1) {
+            document.querySelector(".minus-btn").setAttribute("disabled", "disabled");
+        }
+    })
+
+</script>
