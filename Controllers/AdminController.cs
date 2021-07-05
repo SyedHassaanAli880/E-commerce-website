@@ -9,6 +9,8 @@ using System.Collections.Generic;
 namespace BethinyShop.Controllers
 {
     [Authorize(Roles = "Administrators")]
+    //[Authorize(Policy = "DeleteProduct")]
+    //[Authorize(Policy = "AddPie")]
     public class AdminController : Controller
     {
         private UserManager<IdentityUser> _userManager;
@@ -22,6 +24,7 @@ namespace BethinyShop.Controllers
             _roleManager = roleManager;
         }
 
+        [HttpGet]
         public IActionResult UserManagement()
         {
             var users = _userManager.Users;
@@ -29,6 +32,7 @@ namespace BethinyShop.Controllers
             return View(users);
         }
 
+        [HttpGet]
         public IActionResult RoleManagement()
         {
             var roles = _roleManager.Roles;

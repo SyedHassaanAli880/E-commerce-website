@@ -1,0 +1,76 @@
+﻿@model BethinyShop.ViewModel.Product.AddProductViewModel
+
+<h2>ADD PRODUCT</h2>
+
+<form asp-controller="ProductManagement" asp-action="AddProduct" method="post" enctype="multipart/form-data" class="form-horizontal">
+
+    <h4>Enter the product details below</h4>
+    <hr />
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ShortDescription" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="ShortDescription" class="form-control" />
+            <span asp-validation-for="ShortDescription" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LongDescription" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="LongDescription" class="form-control" />
+            <span asp-validation-for="LongDescription" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="Price" class="form-control" />
+            <span asp-validation-for="Price" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImagePhoto" class="col-md-2 control-label"></label>
+        <div class="custom-file">
+            <input asp-for="ImagePhoto" class="custom-file-input" id="customeFile" />
+            <label class="custom-file-label" for="customeFile">Choose Image</label>
+
+        </div>
+        <span asp-validation-for="ImagePhoto" class="text-danger"></span>
+    </div>
+
+
+
+
+    <div class="form-group">
+        <label asp-for="IsInStock " class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="IsInStock" class="form-control" />
+            <span asp-validation-for="IsInStock" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="quantity" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="quantity" class="form-control" />
+            <span asp-validation-for="quantity" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-primary" value="Add" />
+        </div>
+    </div>
+</form>

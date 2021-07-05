@@ -1,6 +1,6 @@
-﻿using BethinyShop.Auth;
-using BethinyShop.Models;
-using BethinyShop.ViewModel;
+﻿using BethinyShop.Models;
+using BethinyShop.Repositories;
+using BethinyShop.Repositories.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -37,9 +37,11 @@ namespace BethinyShop
             services.AddDbContext<AppDbContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<IPieRepository, PieRepository>();
+            services.AddTransient<IProductRepository, ProductRepository>();
 
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
+
+            services.AddTransient(typeof(Interface<>), typeof(Repository<>));
 
             //services.AddScoped<SignInManager<LoginViewModel>>();
 
@@ -49,11 +51,16 @@ namespace BethinyShop
             services.AddIdentity<IdentityUser, IdentityRole>(options =>
             {
                 options.Password.RequiredLength = 8;
-                //options.Password.RequireNonAlphanumeric = true;
-                //options.Password.RequireUppercase = true;
-                //options.User.RequireUniqueEmail = true;
+                options.Password.RequireNonAlphanumeric = true;
+                options.Password.RequireUppercase = true;
+                options.User.RequireUniqueEmail = true;
             }
             ).AddEntityFrameworkStores<AppDbContext>();
+
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("DeleteProduct", policy => policy.RequireClaim("DeleteProduct"));
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -79,7 +86,7 @@ namespace BethinyShop
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Pie}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Login}/{id?}");
             });
         }
     }

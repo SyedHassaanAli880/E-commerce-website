@@ -41,7 +41,7 @@ namespace BethinyShop.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Pie");
+                    return RedirectToAction("Index", "Product");
                 }
             }
 
@@ -68,7 +68,7 @@ namespace BethinyShop.Controllers
 
                 if (result.Succeeded)
                 {
-                    return RedirectToAction("Index", "Pie");
+                    return RedirectToAction("Index", "Product");
                 }
 
             }
@@ -81,7 +81,7 @@ namespace BethinyShop.Controllers
         {
             await _signInManager.SignOutAsync();
 
-            return RedirectToAction("Index", "Pie");
+            return RedirectToAction("Index", "Product");
         }
 
         

@@ -1,4 +1,6 @@
 ﻿using BethinyShop.Models;
+using BethinyShop.Repositories.Interfaces;
+using BethinyShop.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -12,9 +14,12 @@ namespace BethinyShop.Controllers
     public class FeedbackController : Controller
     {
         private readonly IFeedbackRepository _feedbackrepository;
+
+        
         public FeedbackController(IFeedbackRepository feedbackrepository)
         {
             _feedbackrepository = feedbackrepository;
+
         }
         public IActionResult Index()
         {

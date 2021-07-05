@@ -4,14 +4,16 @@ using BethinyShop.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BethinyShop.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210704125353_someChanges")]
+    partial class someChanges
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,23 +50,21 @@ namespace BethinyShop.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("ImagePhoto")
-                        .IsRequired();
+                    b.Property<string>("ImageThumbnailUrl");
+
+                    b.Property<string>("ImageUrl");
 
                     b.Property<bool>("IsInStock");
 
-                    b.Property<string>("LongDescription")
-                        .IsRequired();
+                    b.Property<bool>("IsPieOfTheWeek");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("LongDescription");
+
+                    b.Property<string>("Name");
 
                     b.Property<decimal>("Price");
 
-                    b.Property<string>("ShortDescription")
-                        .IsRequired();
-
-                    b.Property<long>("quantity");
+                    b.Property<string>("ShortDescription");
 
                     b.HasKey("Id");
 
