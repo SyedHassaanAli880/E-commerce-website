@@ -1,1 +1,1 @@
-Online Pie Shop in ASP .NET CORE MVC
+E-commerce website in ASP .NET CORE MVC
