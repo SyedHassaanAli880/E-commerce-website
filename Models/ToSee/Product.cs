@@ -33,7 +33,7 @@ namespace BethinyShop.Models
         [Display(Name = "Quantity" )]
         public long quantity { get; set; }
 
-        [Required]
+        //[Required]
         [Display(Name = "Choose Image")]
         public string ImagePhoto { get; set; }
     }

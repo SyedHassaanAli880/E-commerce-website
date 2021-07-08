@@ -5,7 +5,7 @@
 <div>
     <img alt="" width="230" height="120" src="~/images/@Model.ImagePhoto" />
     <div class="caption-full">
-        <h3 class="pull-right">$PRICE:@Model.Price</h3>
+        <h3 class="pull-right">PRICE: $@Model.Price</h3>
         <h4>SHORT DESCRIPTION:@Model.ShortDescription</h4>
         <h4>LONG DESCRIPTION: @Model.LongDescription</h4>
     </div>
@@ -14,25 +14,30 @@
 <table class="table table-condensed table-bordered" style="margin-top:1%;">
 
     <tr>
-        <th>IN STOCK</th>
-        <th>RATINGS</th>
-        <th>QUANTITY</th>
-        <th>ACTION</th>
+        <th>AVAILABILITY</th>
+        @*<th>RATINGS</th>*@
+        <th   style="text-align:center" >QUANTITY</th>
+        <th   style="text-align:center" >ACTION</th>
     </tr>
 
     <tr>
+        @if (Model.IsInStock == true)
+         {
+            <td class="col-md-2 success">In stock</td>
 
+         }
+        else //not in stock
+        {
+            <td class="col-md-1 danger">Out of stock</td>
+        }
 
-
-        <td class="col-md-1">@Model.IsInStock</td>
-        <td></td>
-        <td>
+        <td style="text-align:center">
             <button class="btn minus-btn disabled" type="button">-</button>
             <input type="text" id="quantity" value="1" />
             <button class="btn plus-btn">+</button>
         </td>
-        <td>
-            <a class="btn btn-sm btn-primary col-md-6" asp-controller="ProductManagement" asp-action="Editproduct" asp-route-id="@Model.Id">Add to cart</a>
+        <td   style="text-align:center" >
+            <a class="btn btn-sm btn-primary col-md-12" asp-controller="ProductManagement" asp-action="Editproduct" asp-route-id="@Model.Id">Add to cart</a>
         </td>
     </tr>
 
@@ -72,6 +77,23 @@
             </p>
         </div>
     </div>
+    <hr />
+    <form>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" class="form-control" placeholder="Name" id="name" name="name" required />
+            <label for="email">Email:</label>
+            <input type="email" class="form-control" placeholder="Name" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+            <label for="comment">Your comment:</label>
+<textarea class="form-control" id="comment" name="comment" rows="5" placeholder="Write your comment here:" required>     
+        </textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="reset" class="btn btn-success">Clear</button>
+    </form>
 </section>
 
 <script>

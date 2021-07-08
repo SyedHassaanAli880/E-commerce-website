@@ -1,16 +1,11 @@
 ﻿@using Microsoft.AspNetCore.Identity
+@using System;
 @model ProductViewModel
+
 
 <h2>PRODUCT MANAGEMENT </h2>
 <a class="btn btn-sm btn-primary" asp-controller="ProductManagement" asp-action="AddProduct">Add new product</a>
 
-
-@*@if (!Model.pi)
-    {
-        <tr><td colspan="3" class="text-center">No user accounts</td></tr>
-    }
-    else
-    {*@
 <table class="table table-condensed table-bordered" style="margin-top:1%;">
 
     <tr>
@@ -28,7 +23,7 @@
     @foreach (var product in Model.Products)
     {
         <tr>
-            <td >@product.Id</td>
+            <td>@product.Id</td>
             <td class="col-md-1">@product.Name</td>
             <td class="col-md-1">
                 <img src="~/images/@product.ImagePhoto" alt="" style="height:120px; width:150px;" />
@@ -38,16 +33,15 @@
             <td class="col-md-1">@product.quantity</td>
             <td class="col-md-1">@product.ShortDescription</td>
             <td class="col-md-3">@product.LongDescription</td>
-            <td >
-                <a class="btn btn-sm btn-primary col-md-6" asp-controller="ProductManagement" asp-action="Editproduct" asp-route-id="@product.Id">Edit</a>
+            <td>
+                <a class="btn btn-sm btn-primary col-md-6" asp-controller="ProductManagement" asp-action="EditProductDetails" asp-route-id="@product.Id">Edit</a>
 
                 <form asp-controller="ProductManagement" asp-action="DeleteProduct" asp-route-id="@product.Id" method="post">
                     <button type="submit" onclick="return confirm('Are you sure?');" class="btn btn-sm btn-danger col-md-6">Delete</button>
                 </form>
             </td>
         </tr>
+
     }
 
 </table>
-
-@*}*@

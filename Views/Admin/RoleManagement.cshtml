@@ -29,7 +29,7 @@ else
                 <td>
                     <a class="btn btn-sm btn-primary col-md-6" asp-controller="Admin" asp-action="EditRole" asp-route-id="@role.Id">Edit</a>
 
-                    <form asp-controller="Admin" asp-action="DeleteRole" asp-route-id="@role.Id" method="post">
+                    <form asp-controller="Admin" asp-action="DeleteRole" asp-route-roleId="@role.Id" method="post">
                         <button type="submit" onclick="return confirm('Are you sure?');" class="btn btn-sm btn-danger col-md-6">Delete</button>
                     </form>
                 </td>

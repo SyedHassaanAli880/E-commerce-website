@@ -4,7 +4,7 @@ namespace BethinyShop.ViewModel
 {
     public class AddRoleViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Please add a role!")]
         [Display(Name = "Role name")]
         public string RoleName { get; set; }
     }

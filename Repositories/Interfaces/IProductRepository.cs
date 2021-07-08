@@ -15,6 +15,8 @@ namespace BethinyShop
 
         int AddProduct(Product vari);
 
+        bool UpdateProduct(int id, Product vari);
+
         bool DeleteProduct(int ID);
     }
 }

@@ -37,4 +37,16 @@
             <a asp-action="UserManagement" asp-controller="Admin" class="btn btn-primary">Cancel</a>
         </div>
     </div>
-</form> 
+</form>
+
+
+@*<h3>Claims for this user:</h3>
+<ul>
+    @foreach (var claim in Model.UserClaims)
+    {
+        <li>@claim</li>
+    }
+</ul>
+
+<a asp-action="ManageClaimsForUsers" asp-controller="Admin" asp-route-userId="@Model.Id" class="btn btn-primary">Manage claims</a>*@
+

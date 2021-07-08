@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace BethinyShop.Controllers
 {
-    [Authorize(Roles = "Administrators")]
+    //[Authorize(Roles = "Administrators")]
     //[Authorize(Policy = "DeleteProduct")]
     //[Authorize(Policy = "AddPie")]
     public class AdminController : Controller
@@ -88,6 +88,15 @@ namespace BethinyShop.Controllers
 
             if (user == null) return RedirectToAction("UserManagement", _userManager.Users);
 
+            var claims = await _userManager.GetClaimsAsync(user);
+
+            //var vm = new EditUserViewModel()
+            //{
+            //    Id = user.Id,
+            //    Email = user.Email,
+            //    UserClaim
+            //}
+
             return View(user);
         }
 
@@ -134,8 +143,6 @@ namespace BethinyShop.Controllers
             }
             return View("UserManagement", _userManager.Users);
         }
-
-        //public IActionResult AddNewRole() => View();
 
         [HttpPost]
         public async Task<IActionResult> AddNewRole(AddRoleViewModel arvm)

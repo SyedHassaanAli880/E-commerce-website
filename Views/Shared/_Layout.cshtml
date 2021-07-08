@@ -12,7 +12,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - BethinyShop</title>
-
+    <script src="https://kit.fontawesome.com/99896b5b8f.js" crossorigin="anonymous"></script>
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
@@ -37,24 +37,51 @@
             </div>
             <div class="navbar-collapse collapse" id="bs-example-navbar-collapse-1">
 
-                @*<ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Product" asp-action="Index">Products</a></li>
-                    <li><a asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a></li>
-
-
-                    <li><a asp-area="" asp-controller="Admin" asp-action="UserManagement">User Management</a></li>
-                    <li><a asp-area="" asp-controller="Admin" asp-action="RoleManagement">Role Management</a></li>
-                    <li><a asp-area="" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Product Management</a></li>
-                </ul>*@
-
                 @if (SignInManager.IsSignedIn(User) && User.IsInRole("Administrators"))
                  {
                 <ul class="nav navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Categories</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Audible Books & Original</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Appliances</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Apps & Games</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Arts, Crafts & Sewing</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Automotive Parts & Accessories</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Baby</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Beauty & Personal Care</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Books</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">CDs & Vinyl</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Cell Phones & Accessories</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Collectibles & Fine Art</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Computers</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Courses</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Credit and Payment Cards</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Digital Educational Resources</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Digital Music</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Electronics</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Garden & Outdoor</a>
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Gift Cards</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Grocery & Gourmet Food</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Handmade</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="UserManagement">Health, Household & Baby Care</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Collectibles & Fine Art</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Computers</a><br />
+                            <a class="dropdown-item" asp-controller="Admin" asp-action="RoleManagement">Collectibles & Fine Art</a><br />
+                            <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Computers</a><br />
+                        </div>
+                    </li>
                     <li><a asp-area="" asp-controller="Product" asp-action="Index">Products</a></li>
-                    <li><a asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a></li>
+                    <li>
+                        <a asp-area="" asp-controller="Feedback" asp-action="Index">
+                            Feedback
+                            <span>
+                                <i class="fa fa-commenting" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </li>
 
                     <li>
-
                         <div class="col-sm-3 col-md-12">
                             <form class="navbar-form" role="search">
                                 <div class="input-group">
@@ -65,7 +92,6 @@
                                 </div>
                             </form>
                         </div>
-
                     </li>
 
                     <li class="nav-item dropdown">
@@ -76,27 +102,46 @@
                             <a class="dropdown-item" asp-controller="ProductManagement" asp-action="HomeListOfProducts">Product Management</a>
                         </div>
                     </li>
+                    <li>
+                        <a asp-area="" asp-controller="Feedback" asp-action="Index">
+                            Cart
+                            <span>
+                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                            </span>
+                        </a>
+                    </li>
+
                 </ul>
                  }
                 else
                 {
-            <ul class="nav navbar-nav">
-                <li><a asp-area="" asp-controller="Product" asp-action="Index">Products</a></li>
-                <li><a asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a></li>
-                <li>
-                    <div class="col-sm-3 col-md-12">
-                        <form class="navbar-form" role="search">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
-                                <div class="input-group-btn">
-                                    <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
+                        <ul class="nav navbar-nav">
+                        <li><a asp-area="" asp-controller="Product" asp-action="Index">Products</a></li>
+                        <li><a asp-area="" asp-controller="Feedback" asp-action="Index">Feedback</a></li>
 
-            </ul>
+                        <li>
+                            <div class="col-sm-3 col-md-12">
+                                <form class="navbar-form" role="search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search" name="srch-term" id="srch-term">
+                                        <div class="input-group-btn">
+                                            <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li>
+                            <a asp-area="" asp-controller="Feedback" asp-action="Index">
+                                Cart
+                                <span>
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+
+
                 }
 
 
