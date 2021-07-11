@@ -21,10 +21,7 @@ namespace BethinyShop.Models
         [Required]
         public decimal Price { get; set; }
 
-        //public string ImageUrl { get; set; }
-
-        //public string ImageThumbnailUrl { get; set; }
-
+        
         [Required]
         [Display(Name = "Is In Stock?")]
         public bool IsInStock { get; set; }
@@ -36,6 +33,10 @@ namespace BethinyShop.Models
         //[Required]
         [Display(Name = "Choose Image")]
         public string ImagePhoto { get; set; }
+
+        //[Required]
+        [Display(Name = "Select Category")]
+        public string Category { get; set; }
     }
 
    

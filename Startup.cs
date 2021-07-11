@@ -41,6 +41,8 @@ namespace BethinyShop
 
             services.AddTransient<IFeedbackRepository, FeedbackRepository>();
 
+            services.AddTransient<ICategoryRepository, CategoryRepository>();
+
             services.AddTransient(typeof(Interface<>), typeof(Repository<>));
 
             //services.AddScoped<SignInManager<LoginViewModel>>();

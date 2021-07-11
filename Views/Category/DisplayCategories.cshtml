@@ -1,0 +1,44 @@
+﻿@model BethinyShop.ViewModel.Category.CategoryViewModel
+
+
+<h2>CATEGORY MANAGEMENT </h2>
+<a class="btn btn-sm btn-primary" asp-controller="Category" asp-action="AddCategory">Add new category</a>
+
+<table class="table table-condensed table-bordered" style="margin-top:1%;">
+
+    <tr>
+        <th style="text-align:center; background-color:black; color:white;">ID</th>
+        <th style="text-align:center; background-color:black; color:white;">NAME</th>
+        <th style="text-align:center; background-color:black; color:white;">Is Active</th>
+        <th style="text-align:center; background-color:black; color:white;">Actions</th>
+    </tr>
+
+    @foreach (var category in Model.cvmcategories)
+     {
+        
+        <tr>
+            
+                <td class="col-md-1" style="text-align:center">@category.Id</td>
+
+                <td class="col-md-7" style="text-align:center">@category.Name</td>
+
+                @if (@category.IsActive == 1)
+                 {
+                    <td class="col-md-2" style="text-align:center">Yes</td>
+                 }
+                else
+                {
+                    <td class="col-md-2" style="text-align:center">No</td>
+                }
+            <td>
+                <a class="btn btn-sm btn-primary col-md-6" asp-controller="Category" asp-action="EditCategory" asp-route-id="@category.Id">Edit</a>
+                <form asp-controller="Category" asp-action="DeleteCategory" asp-route-id="@category.Id" method="post">
+                    <button type="submit" onclick="return confirm('Are you sure?');" class="btn btn-sm btn-danger col-md-6">Delete</button>
+                </form>
+            </td>
+
+        </tr>
+
+     }
+
+</table>

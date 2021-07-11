@@ -1,0 +1,31 @@
+﻿@model BethinyShop.ViewModel.Category.AddCategoryViewModel
+
+<h2>ADD CATEGORY</h2>
+
+<form asp-controller="Category" asp-action="AddCategory" method="post" class="form-horizontal">
+
+    <div class="form-group">
+        <label asp-for="Name" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <input asp-for="Name" class="form-control" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="IsActive" class="col-md-2 control-label"></label>
+        <div class="col-md-4">
+            <select asp-for="IsActive" class="form-control">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+            <span asp-validation-for="IsActive" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-primary" value="Add" />
+        </div>
+    </div>
+</form>
